@@ -1,0 +1,19 @@
+{
+  "name": "albioneconomy",
+  "version": "0.0.1",
+  "description": "*Пробуем построить облегчить муки с экономикой в альбионе и толпой табличек в xls*",
+  "main": "server/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ineigo/albionEconomy.git"
+  },
+  "author": "Ineigo Kira",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ineigo/albionEconomy/issues"
+  },
+  "homepage": "https://github.com/Ineigo/albionEconomy#readme"
+}
