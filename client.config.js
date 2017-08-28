@@ -17,12 +17,29 @@ const config = {
 					use: "css-loader"
 				})
             },
-            // Optionally extract less files
-            // or any other compile-to-css language
-            // {
-            //     test: /\.less$/,
-            //     loader: ExtractTextPlugin.extract("style-loader", "css-loader!less-loader")
-            // },
+            {
+                test: /\.s[ac]ss$/,
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: [
+                        {
+                            loader: 'css-loader', query : {
+                                modules: true,
+                                importLoaders: 1,
+                                localIdentName: '[name]__[local]___[hash:base64:5]',
+                                sourceMap: true
+                            }
+                        },
+                        {
+                            loader: 'postcss-loader',
+                            options: {
+                                sourceMap: true
+                            }
+                        },
+                        { loader: 'sass-loader' }
+                    ]
+                })
+            },
             {
                 test: /\.js$/,
                 exclude: /(node_modules|bower_components)/,
