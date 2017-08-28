@@ -1,8 +1,16 @@
-import http from 'http';
+import express from 'express';
+import path from 'path';
 
-http.createServer((req, res) => {
-  res.writeHead(200, {'Content-Type': 'text/plain'});
-  res.end('Hello World\n');
-}).listen(1337, '127.0.0.1');
+const PORT = 7700;
+const PUBLIC_PATH = __dirname + '/public';
+const app = express();
 
-console.log('Server running at http://127.0.0.1:1337/');
+app.use(express.static(PUBLIC_PATH));
+
+app.all("*", function(req, res) {
+  res.sendFile(path.resolve(PUBLIC_PATH, 'index.html'));
+});
+
+app.listen(PORT, function() {
+  console.log(`Server running at http://127.0.0.1:${PORT}/`);
+});

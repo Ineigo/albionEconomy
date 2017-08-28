@@ -1,13 +1,13 @@
 const fs = require('fs');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
-const entry = fs.readdirSync('./client').reduce((prev, folder) => (prev[`${folder}/${folder}`] = `./client/${folder}/index.js`) && prev, {});
+const entry = fs.readdirSync('./client').reduce((prev, folder) => (prev[`${folder}/index`] = `./client/${folder}/index.js`) && prev, {});
 
 const config = {
     entry,
     output: {
         filename: '[name].js',
-        path: __dirname + '/dist'
+        path: __dirname + '/dist/public'
     },
     module: {
         loaders: [
