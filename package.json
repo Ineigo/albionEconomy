@@ -23,7 +23,11 @@
   },
   "homepage": "https://github.com/Ineigo/albionEconomy#readme",
   "dependencies": {
-    "express": "^4.15.4"
+    "classnames": "^2.2.5",
+    "express": "^4.15.4",
+    "prop-types": "^15.5.10",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -37,6 +41,7 @@
     "postcss-import": "^10.0.0",
     "postcss-loader": "^2.0.6",
     "sass-loader": "^6.0.6",
+    "source-map": "^0.5.7",
     "style-loader": "^0.18.2",
     "webpack": "^3.5.5"
   }

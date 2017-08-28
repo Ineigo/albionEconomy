@@ -52,6 +52,7 @@ const config = {
             }
         ]
     },
+    devtool: 'source-map',
     plugins: [
         new ExtractTextPlugin({
             filename: "[name].css",
