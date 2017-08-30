@@ -1,0 +1,28 @@
+.wrapper {
+    .item {
+        padding: 10px 15px;
+        border-bottom: 1px solid #c3c3c3;
+        color: #555;
+        cursor: pointer;
+    }
+    .item:hover {
+        color: #777;
+    }
+    .item:last-of-type {
+        border-bottom: none;
+    }
+    .active {
+        color: #598ba8;
+        background: lighten(#c3c3c3, 10%);
+    }
+}
+.type-vertical {
+    width: 200px;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    border-right: 1px solid #c3c3c3;
+}
+.type-horisontal {
+
+}

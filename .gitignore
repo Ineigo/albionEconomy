@@ -58,6 +58,7 @@ typings/
 .env
 
 # Project
-dist/**/*.js
-dist/**/*.css
+dist/public/**/*.js
+dist/public/**/*[.css|.map]
+dist/server.js
 !dist/public/index.html

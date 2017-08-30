@@ -1,6 +1,6 @@
 import style from './Tabs.scss';
 import React, { Component } from 'react';
-import classNames from 'classnames'
+import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
 export default class Tabs extends Component {

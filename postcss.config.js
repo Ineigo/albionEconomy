@@ -1,11 +1,11 @@
-module.exports = ({ file, options, env }) => {
+module.exports = function (params) {
     return ({
-        parser: file.extname === '.sss' ? 'sugarss' : false,
+        parser: params.file.extname === '.sss' ? 'sugarss' : false,
         plugins: {
-            'postcss-import': { root: file.dirname },
-            'postcss-cssnext': options.cssnext ? options.cssnext || {} : false,
-            autoprefixer: env === 'production' ? options.autoprefixer || {} : false,
-            cssnano: env === 'production' ? options.cssnano || {} : false,
+            'postcss-import': { root: params.file.dirname },
+            'postcss-cssnext': params.options.cssnext ? params.options.cssnext || {} : false,
+            autoprefixer: params.env === 'production' ? params.options.autoprefixer || {} : false,
+            cssnano: params.env === 'production' ? params.options.cssnano || {} : false,
         },
     });
 };
