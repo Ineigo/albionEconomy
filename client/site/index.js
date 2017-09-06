@@ -29,7 +29,8 @@ class Root extends React.Component {
         { name: 'id1', title: 'Дерево' },
         { name: 'id2', title: 'Брусья' },
         { name: 'id3', title: 'Камни' },
-        { name: 'id4', title: 'Еще что-то' }
+        { name: 'id4', title: 'Еще что-то' },
+        { name: 'id5', title: '...' }
     ]
 
     render() {

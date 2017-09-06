@@ -4,7 +4,8 @@
   "description": "*Пробуем построить облегчить муки с экономикой в альбионе и толпой табличек в xls*",
   "main": "server/server.jsnpm install --save-dev babel-cli",
   "scripts": {
-    "build:static": "./node_modules/.bin/webpack --config ./client.config.js",
+    "storybook": "start-storybook -p 9001 -c .storybook",
+    "build:static": "./node_modules/.bin/webpack --config ./webpack.config.js",
     "watch:static": "npm run build:static -- --watch",
     "build:server": "babel server -d dist --presets es2015,stage-2",
     "build": "npm run build:static && npm run build:server",
@@ -30,8 +31,12 @@
     "react-dom": "^15.6.1"
   },
   "devDependencies": {
+    "@storybook/addon-actions": "^3.2.6",
+    "@storybook/addons": "^3.2.6",
+    "@storybook/react": "^3.2.8",
     "babel-cli": "^6.26.0",
     "babel-loader": "^7.1.2",
+    "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",

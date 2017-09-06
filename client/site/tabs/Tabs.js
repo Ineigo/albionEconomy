@@ -20,6 +20,11 @@ export default class Tabs extends Component {
 
         this.options = Object.assign(this.defaultOptions, props.options);
         this.classNames = this.options.classNames;
+        if (!props.active) {
+            this.state = {
+                active: props.items[0].name
+            }
+        }
     }
 
     render() {
@@ -29,15 +34,24 @@ export default class Tabs extends Component {
     }
 
     _createTab(tab) {
-        const isActive = this.props.active === tab.name;
+        const isActive = this.props.active === tab.name || this.state.active === tab.name;
         const classNameTab = classNames(
             { [tab.class]: tab.class },
             this.classNames.tab || style.tab,
             { [style.active]: isActive && !this.classNames.active},
             { [this.classNames.active]: isActive }
         );
-        return <div key={tab.name} className={classNameTab} onClick={e => this.props.onClick(tab, e)}>
+        return <div key={tab.name} className={classNameTab} onClick={e => this._onClick(tab, e)}>
             <span className={this.classNames.title || style.title}>{tab.title}</span>
         </div>;
+    }
+
+    _onClick(tab, e) {
+        if (!this.props.active) {
+            this.setState({
+                active: tab.name
+            });
+        }
+        this.props.onClick(tab, e)
     }
 }
