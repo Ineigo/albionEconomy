@@ -34,7 +34,7 @@ export default class Tabs extends Component {
     }
 
     _createTab(tab) {
-        const isActive = this.props.active === tab.name || this.state.active === tab.name;
+        const isActive = this._isActive(tab);
         const classNameTab = classNames(
             { [tab.class]: tab.class },
             this.classNames.tab || style.tab,
@@ -44,6 +44,11 @@ export default class Tabs extends Component {
         return <div key={tab.name} className={classNameTab} onClick={e => this._onClick(tab, e)}>
             <span className={this.classNames.title || style.title}>{tab.title}</span>
         </div>;
+    }
+
+    _isActive(tab) {
+        const active = this.props.active || this.state.active;
+        return active === tab.name;
     }
 
     _onClick(tab, e) {

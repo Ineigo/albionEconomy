@@ -2,15 +2,16 @@
   "name": "albioneconomy",
   "version": "0.0.1",
   "description": "*Пробуем построить облегчить муки с экономикой в альбионе и толпой табличек в xls*",
-  "main": "server/server.jsnpm install --save-dev babel-cli",
+  "main": "server/server.js",
   "scripts": {
     "storybook": "start-storybook -p 9001 -c .storybook",
     "build:static": "./node_modules/.bin/webpack --config ./webpack.config.js",
     "watch:static": "npm run build:static -- --watch",
     "build:server": "babel server -d dist --presets es2015,stage-2",
+    "watch:server": "babel server -d dist --presets es2015,stage-2 --watch",
     "build": "npm run build:static && npm run build:server",
     "start": "npm run build && npm run start:server",
-    "start:server": "node dist/server.js",
+    "start:server": "nodemon dist/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -43,6 +44,7 @@
     "css-loader": "^0.28.5",
     "extract-text-webpack-plugin": "^3.0.0",
     "node-sass": "^4.5.3",
+    "nodemon": "^1.12.0",
     "postcss-import": "^10.0.0",
     "postcss-loader": "^2.0.6",
     "sass-loader": "^6.0.6",
