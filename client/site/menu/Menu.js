@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import style from './Menu.scss';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import Link from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export default class Menu extends Component {
     static propTypes = {

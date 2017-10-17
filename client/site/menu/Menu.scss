@@ -1,19 +1,23 @@
 .wrapper {
     .item {
-        padding: 10px 15px;
         border-bottom: 1px solid #c3c3c3;
-        color: #555;
-        cursor: pointer;
     }
-    .item:hover {
+    .item a {
+        display: block;
+        padding: 10px 15px;
+        cursor: pointer;
+        text-decoration: none;
+        color: #555;
+    }
+    .item a:hover {
         color: #777;
     }
     .item:last-of-type {
         border-bottom: none;
     }
-    .active {
-        color: #598ba8;
+    .active a {
         background: lighten(#c3c3c3, 10%);
+        color: #598ba8;
     }
 }
 .type-vertical {

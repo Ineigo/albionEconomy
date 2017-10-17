@@ -1,10 +1,11 @@
 import Tabs from './tabs';
 import Menu from './menu';
 import style from './index.scss';
+import Dashboard from './dashboard';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import HashRouter from 'react-router-dom';
+import { HashRouter, Route } from 'react-router-dom';
 
 class Root extends React.Component {
     constructor(props) {
@@ -23,8 +24,9 @@ class Root extends React.Component {
         this.setState({ activeTab: tab.name });
     };
     _onClickMenuItem = item => {
-        this.setState({ activeMenuItem: item.name });
-    }
+        this.setState({ activeMenuItem: item.to });
+        console.log('click');
+    };
 
     menuItems = [
         { to: 'id1', title: 'Дерево' },
@@ -40,6 +42,12 @@ class Root extends React.Component {
             <Tabs items={this.tabs} onClick={this._onClickTab} active={this.state.activeTab}/>
             <div className={style.page}>
                 <Menu items={this.menuItems} onClick={this._onClickMenuItem} active={this.state.activeMenuItem} />
+                <div>
+                    <Route exact path="/" component={Dashboard}/>
+                    <Route exact path="/:page" render={(props) => (
+                        <h3>Render page: {props.match.params.page} </h3>
+                    )}/>
+                </div>
             </div>
         </div>;
     }
@@ -55,6 +63,12 @@ class Root extends React.Component {
     }
 
 }
+
+const All = () => (
+    <div>
+        <h2>All</h2>
+    </div>
+)
 
 ReactDOM.render(
     <HashRouter>
