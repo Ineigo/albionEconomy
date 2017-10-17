@@ -68,7 +68,13 @@ const config = {
         // new webpack.optimize.UglifyJsPlugin({
         //     sourceMap: true
         // })
-    ]
+    ],
+    resolve: {
+        modules: [
+            './library',
+            'node_modules'
+        ]
+    }
 };
 
 module.exports = config;

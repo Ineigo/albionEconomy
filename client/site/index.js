@@ -1,4 +1,4 @@
-import Tabs from './tabs';
+import Tabs from 'tabs';
 import Menu from './menu';
 import style from './index.scss';
 import Dashboard from './dashboard';
