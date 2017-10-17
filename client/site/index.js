@@ -3,7 +3,8 @@ import Menu from './menu';
 import style from './index.scss';
 
 import React from 'react';
-import ReactDOM from 'react-dom'
+import ReactDOM from 'react-dom';
+import HashRouter from 'react-router-dom';
 
 class Root extends React.Component {
     constructor(props) {
@@ -26,11 +27,11 @@ class Root extends React.Component {
     }
 
     menuItems = [
-        { name: 'id1', title: 'Дерево' },
-        { name: 'id2', title: 'Брусья' },
-        { name: 'id3', title: 'Камни' },
-        { name: 'id4', title: 'Еще что-то' },
-        { name: 'id5', title: '...' }
+        { to: 'id1', title: 'Дерево' },
+        { to: 'id2', title: 'Брусья' },
+        { to: 'id3', title: 'Камни' },
+        { to: 'id4', title: 'Еще что-то' },
+        { to: 'id5', title: '...' }
     ]
 
     render() {
@@ -55,4 +56,7 @@ class Root extends React.Component {
 
 }
 
-ReactDOM.render(<Root />, document.getElementById('root'));
+ReactDOM.render(
+    <HashRouter>
+        <Root />
+    </HashRouter>, document.getElementById('root'));

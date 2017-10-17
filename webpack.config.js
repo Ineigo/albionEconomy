@@ -1,5 +1,7 @@
 const fs = require('fs');
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const webpack = require('webpack');
 
 const entry = fs.readdirSync('./client').reduce((prev, folder) => (prev[`${folder}/index`] = `./client/${folder}/index.js`) && prev, {});
 
@@ -57,7 +59,15 @@ const config = {
         new ExtractTextPlugin({
             filename: "[name].css",
             allChunks: true
-        })
+        }),
+        new webpack.DefinePlugin({
+            'process.env': {
+                NODE_ENV: JSON.stringify('develop')
+            }
+        }),
+        // new webpack.optimize.UglifyJsPlugin({
+        //     sourceMap: true
+        // })
     ]
 };
 

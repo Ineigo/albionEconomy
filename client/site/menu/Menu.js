@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import style from './Menu.scss';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
+import Link from 'react-router-dom';
 
 export default class Menu extends Component {
     static propTypes = {
@@ -22,7 +23,9 @@ export default class Menu extends Component {
     }
 
     createItem(item) {
-        const classItem = classNames(style.item, { [style.active]: this.props.active === item.name });
-        return <div className={classItem} key={item.name} onClick={e => this.props.onClick(item, e)}>{item.title}</div>;
+        const classItem = classNames(style.item, { [style.active]: this.props.active === item.to });
+        return <div className={classItem} key={item.to} onClick={e => this.props.onClick(item, e)}>
+            <Link to={item.to}>{item.title}</Link>
+        </div>;
     }
 }
