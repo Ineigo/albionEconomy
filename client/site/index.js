@@ -11,33 +11,26 @@ class Root extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            activeTab: 'resource',
             activeMenuItem: 'id2',
         };
     }
-    tabs = [{ name: 'resource', title: 'Ресурсы' }, { name: 'resource2', title: 'Ресурсы2' }];
 
-    _onClickTab = tab => {
-        this.setState({ activeTab: tab.name });
-    };
     _onClickMenuItem = item => {
         this.setState({ activeMenuItem: item.to });
         console.log('click');
     };
 
     menuItems = [
-        { to: 'id1', title: 'Дерево' },
-        { to: 'id2', title: 'Брусья' },
-        { to: 'id3', title: 'Камни' },
-        { to: 'id4', title: 'Еще что-то' },
-        { to: 'id5', title: '...' },
+        {
+            title: 'Домены',
+            icon: '1',
+            items: [{ to: 'id1', title: 'Регистрация доменов' }, { to: 'id2', title: 'Персоны' }],
+        },
     ];
 
     render() {
         return (
             <div className={style.wrapper}>
-                <h3>Калькулятор Albion Economy</h3>
-                <Tabs items={this.tabs} onClick={this._onClickTab} active={this.state.activeTab} />
                 <div className={style.page}>
                     <Menu items={this.menuItems} onClick={this._onClickMenuItem} active={this.state.activeMenuItem} />
                     <div>
