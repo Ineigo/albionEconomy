@@ -7,10 +7,10 @@ const app = express();
 
 app.use(express.static(PUBLIC_PATH));
 
-app.all("*", function(req, res) {
-  res.sendFile(path.resolve(PUBLIC_PATH, 'index.html'));
+app.all('*', function(req, res) {
+    res.sendFile(path.resolve(PUBLIC_PATH, 'index.html'));
 });
 
 app.listen(PORT, function() {
-  console.log(`Server running at http://127.0.0.1:${PORT}/`);
+    console.log(`Server running at http://127.0.0.1:${PORT}/`);
 });

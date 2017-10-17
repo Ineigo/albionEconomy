@@ -8,11 +8,11 @@ export default class Tabs extends Component {
         items: PropTypes.array.isRequired,
         onClick: PropTypes.func.isRequired,
         active: PropTypes.string,
-        options: PropTypes.object
-    }
+        options: PropTypes.object,
+    };
 
     defaultOptions = {
-        classNames: {}
+        classNames: {},
     };
 
     constructor(props) {
@@ -22,15 +22,17 @@ export default class Tabs extends Component {
         this.classNames = this.options.classNames;
         if (!props.active) {
             this.state = {
-                active: props.items[0].name
-            }
+                active: props.items[0].name,
+            };
         }
     }
 
     render() {
-        return <nav className={this.classNames.tabs || style.tabs}>
-            { this.props.items.map(itm => this._createTab(itm)) }
-        </nav>;
+        return (
+            <nav className={this.classNames.tabs || style.tabs}>
+                {this.props.items.map(itm => this._createTab(itm))}
+            </nav>
+        );
     }
 
     _createTab(tab) {
@@ -38,12 +40,14 @@ export default class Tabs extends Component {
         const classNameTab = classNames(
             { [tab.class]: tab.class },
             this.classNames.tab || style.tab,
-            { [style.active]: isActive && !this.classNames.active},
+            { [style.active]: isActive && !this.classNames.active },
             { [this.classNames.active]: isActive }
         );
-        return <div key={tab.name} className={classNameTab} onClick={e => this._onClick(tab, e)}>
-            <span className={this.classNames.title || style.title}>{tab.title}</span>
-        </div>;
+        return (
+            <div key={tab.name} className={classNameTab} onClick={e => this._onClick(tab, e)}>
+                <span className={this.classNames.title || style.title}>{tab.title}</span>
+            </div>
+        );
     }
 
     _isActive(tab) {
@@ -54,9 +58,9 @@ export default class Tabs extends Component {
     _onClick(tab, e) {
         if (!this.props.active) {
             this.setState({
-                active: tab.name
+                active: tab.name,
             });
         }
-        this.props.onClick(tab, e)
+        this.props.onClick(tab, e);
     }
 }

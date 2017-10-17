@@ -9,23 +9,27 @@ export default class Menu extends Component {
         orientation: PropTypes.string,
         items: PropTypes.array.isRequired,
         onClick: PropTypes.func.isRequired,
-        active: PropTypes.string
-    }
+        active: PropTypes.string,
+    };
     static defaultProps = {
         orientation: 'vertical', // или horisontal
-        active: ''
-    }
+        active: '',
+    };
 
     render() {
-        return (<nav className={classNames(style.wrapper, style[`type-${this.props.orientation}`])}>
-            {this.props.items.map(item => this.createItem(item))}
-        </nav>);
+        return (
+            <nav className={classNames(style.wrapper, style[`type-${this.props.orientation}`])}>
+                {this.props.items.map(item => this.createItem(item))}
+            </nav>
+        );
     }
 
     createItem(item) {
         const classItem = classNames(style.item, { [style.active]: this.props.active === item.to });
-        return <div className={classItem} key={item.to} onClick={e => this.props.onClick(item, e)}>
-            <Link to={item.to}>{item.title}</Link>
-        </div>;
+        return (
+            <div className={classItem} key={item.to} onClick={e => this.props.onClick(item, e)}>
+                <Link to={item.to}>{item.title}</Link>
+            </div>
+        );
     }
 }
